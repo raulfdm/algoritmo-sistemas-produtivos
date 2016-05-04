@@ -75,31 +75,30 @@ $(document).ready(function() {
             if (typeof ret !== "number") {
                 $('.result-list').append("<li> P" + (i + 1) + ": " + ret + "</li>").addClass("alert alert-danger");
 
-            }else{
-              sequence.push(arrayObj[i].val());
+            } else {
+                sequence.push(arrayObj[i].val());
             }
         }
 
         if (ret === 0) {
-          removeLi();
-          if($('.result-list').length ===1)
-          $('.result-list').removeClass("alert alert-danger");
-            return sequence;
+            removeLi();
+            if ($('.result-list').length === 1)
+                return sequence;
         }
 
     }
 
     function validateFields(field, array) {
-      var number = field.val();
+        var number = field.val();
         if (number > 4) {
             return "Choose a number lower than 4";
         } else if (number === "") {
             return "Please, choose a number";
         } else if (number < 1) {
             return "The value can not be 0";
-        } else if(array.indexOf(number) !== -1){
-          return "Repeated number. Choose another";
-        }else {
+        } else if (array.indexOf(number) !== -1) {
+            return "Repeated number. Choose another";
+        } else {
             return 0;
         }
     }
@@ -133,18 +132,20 @@ $(document).ready(function() {
         //manda o array para a função que calcula
         var obj = calculate(array);
         //preenche o h1 com o result retornado
-        $('ul').append("<li><strong>Used Array:</strong> [" + obj.array + "]  " + "<strong>Value:</strong> " + obj.result + "</li>");
+        $('.result-list').append("<li><strong>Used Array:</strong> [" + obj.array + "]  " + "<strong>Value:</strong> " + obj.result + "</li>");
     });
 
     //Escuta o evento de click do botão random
     $('#randomCal').on('click', function() {
+        removeLi();
         var array = fillArrayRandom();
         var obj = calculate(array);
-        $('ul').append("<li><strong>Used Array:</strong> [" + obj.array + "]  " + "<strong>Value:</strong> " + obj.result + "</li>");
+        $('.result-list').append("<li><strong>Used Array:</strong> [" + obj.array + "]  " + "<strong>Value:</strong> " + obj.result + "</li>");
     });
 
     //Escuta o evento do botão RODA 100
     $('#hundredCal').on('click', function() {
+        removeLi();
         var total = [];
         //Roda a função 100 vezes
         for (var i = 0; i < 1000; i++) {
@@ -160,7 +161,7 @@ $(document).ready(function() {
 
         //Imprime no console para cada interação
         $.each(objList, function(index, value) {
-            $('ul').append("<li><strong>Used Array:</strong> [" + value.array + "]  " + "<strong>Value:</strong> " + value.result + "</li>");
+            $('.result-list').append("<li><strong>Used Array:</strong> [" + value.array + "]  " + "<strong>Value:</strong> " + value.result + "</li>");
         });
     });
 
@@ -175,7 +176,8 @@ $(document).ready(function() {
         removeLi();
     });
 
-    function removeLi(){
-      $('.result-list li').remove();
+    function removeLi() {
+        $('.result-list li').remove();
+        $('.result-list').removeClass("alert alert-danger");
     }
 });

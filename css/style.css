@@ -9,21 +9,46 @@ h1 {
     background-color: inherit;
 }
 .gp-btn {
-    clear: both;
+  margin-top: 19px;
+margin-bottom: -23px;
+}
+.gp-btn button{
+  margin: 5px;
 }
 .result-pnl {
-margin-top: 50px;
+    margin-top: 50px;
+}
+.panel .panel-heading h2 {
+    text-align: center;
+}
+.result-pnl .panel-body {
+    height: 400px;
+    max-height: 400px;
+    overflow: scroll;
+}
+.result-list {
+    list-style: none;
+}
+.table-matrix {
+    text-align: center;
+}
+.dif-color-index {
+    background-color: #34495e;
+    color: #fff;
+}
 
-}
-.panel .panel-heading h2{
-  text-align: center;
-}
-.result-pnl .panel-body{
-height: 200px;
-  max-height: 200px;
-  overflow: scroll;
+.center{
+  position: relative;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   width: 50%;
+   height: 30%;
+   margin: auto;
 }
 
-.result-list{
-  list-style: none;
+.rules{
+  margin-left: 20px;
+  list-style: decimal;
 }
