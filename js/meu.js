@@ -58,14 +58,50 @@ var calculate = function(sequence) {
 
 //Carrega quando terminar o load do documento
 $(document).ready(function() {
+
     //pega os valores dos inputs
     function fillArray() {
         var sequence = [];
-        sequence.push($('#value1').val());
-        sequence.push($('#value2').val());
-        sequence.push($('#value3').val());
-        sequence.push($('#value4').val());
-        return sequence;
+        var p1 = $('#value1');
+        var p2 = $('#value2');
+        var p3 = $('#value3');
+        var p4 = $('#value4');
+
+        var arrayObj = [p1, p2, p3, p4];
+
+        var ret;
+        for (var i = 0; i < 4; i++) {
+            ret = validateFields(arrayObj[i], sequence);
+            if (typeof ret !== "number") {
+                $('.result-list').append("<li> P" + (i + 1) + ": " + ret + "</li>").addClass("alert alert-danger");
+
+            }else{
+              sequence.push(arrayObj[i].val());
+            }
+        }
+
+        if (ret === 0) {
+          removeLi();
+          if($('.result-list').length ===1)
+          $('.result-list').removeClass("alert alert-danger");
+            return sequence;
+        }
+
+    }
+
+    function validateFields(field, array) {
+      var number = field.val();
+        if (number > 4) {
+            return "Choose a number lower than 4";
+        } else if (number === "") {
+            return "Please, choose a number";
+        } else if (number < 1) {
+            return "The value can not be 0";
+        } else if(array.indexOf(number) !== -1){
+          return "Repeated number. Choose another";
+        }else {
+            return 0;
+        }
     }
     //Preenchimento Randomico
     function fillArrayRandom() {
@@ -91,6 +127,7 @@ $(document).ready(function() {
 
     //Escuta o evento click do botão calcula
     $('#calculate').on('click', function() {
+        removeLi();
         //Pega o array preenchido nos inputs
         var array = fillArray();
         //manda o array para a função que calcula
@@ -135,6 +172,10 @@ $(document).ready(function() {
     });
 
     $('#removeElem').on('click', function() {
-        $('ul li').remove();
+        removeLi();
     });
+
+    function removeLi(){
+      $('.result-list li').remove();
+    }
 });
