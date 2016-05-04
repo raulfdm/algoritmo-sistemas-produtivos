@@ -9,46 +9,46 @@ var A1 = mathsAPI.getInstance('masfufa', {
 });
 
 //Função que faz o calculo
-var calcula = function(sequencia) {
+var calculate = function(sequence) {
     //Um array espelho para retornar.
-    var getArray = sequencia.toString();
+    var getArray = sequence.toString();
 
-    //Variável do resultado
-    var resultado = 0;
+    //Variável do result
+    var result = 0;
     //Posição Atual
-    var numeroAtual = 0;
+    var currentPos = 0;
     //Posição Anterior
-    var numeroAnterior = 0;
+    var prevPos = 0;
     //Sinalizador de fim do array
-    var verdadeiro = true;
+    var stop = true;
 
     //Começando o trabalho
-    while (verdadeiro) {
+    while (stop) {
         //valida se o array ainda tem elementos
-        if (sequencia.length === 0) {
-            verdadeiro = false;
+        if (sequence.length === 0) {
+            stop = false;
         }
-        //Atribui o primeiro elemento da sequencia ao Atual
-        numeroAtual = sequencia[0];
+        //Atribui o primeiro elemento da sequence ao Atual
+        currentPos = sequence[0];
         //Valida se o array já chegou ao final
-        if (A1.get[numeroAnterior][numeroAtual] === undefined) {
-            numeroAtual = 0;
+        if (A1.get[prevPos][currentPos] === undefined) {
+            currentPos = 0;
         }
-        //pega o valor correspondente e soma no resultado
-        resultado += A1.get[numeroAnterior][numeroAtual];
+        //pega o valor correspondente e soma no result
+        result += A1.get[prevPos][currentPos];
         //Imprime o array
-        //console.log("numeroAtual " + numeroAtual + " | " + "numeroAnterior" + numeroAnterior);
+        //console.log("currentPos " + currentPos + " | " + "prevPos" + prevPos);
         //Salva o número atual
-        numeroAnterior = numeroAtual;
+        prevPos = currentPos;
         //Remove o elemento do array
-        indiceAtual = sequencia.indexOf(numeroAtual);
-        sequencia.splice(indiceAtual, 1);
+        currentIndex = sequence.indexOf(currentPos);
+        sequence.splice(currentIndex, 1);
     }
 
     //Cria um objeto com o array que foi utilizado e o valor da conta
     var obj = {
         array: getArray,
-        resultado: resultado
+        result: result
     };
 
     //Retorna o objeto
@@ -59,71 +59,71 @@ var calcula = function(sequencia) {
 //Carrega quando terminar o load do documento
 $(document).ready(function() {
     //pega os valores dos inputs
-    function preencheArray() {
-        var sequencia = [];
-        sequencia.push($('#valor1').val());
-        sequencia.push($('#valor2').val());
-        sequencia.push($('#valor3').val());
-        sequencia.push($('#valor4').val());
-        return sequencia;
+    function fillArray() {
+        var sequence = [];
+        sequence.push($('#value1').val());
+        sequence.push($('#value2').val());
+        sequence.push($('#value3').val());
+        sequence.push($('#value4').val());
+        return sequence;
     }
     //Preenchimento Randomico
-    function preencheArrayRandom() {
+    function fillArrayRandom() {
         //variável para guardar o valor
         var add;
         //Array que será enviado
-        var sequencia = [];
+        var sequence = [];
         //Função para preencher o array
-        while (sequencia.length < 4) {
+        while (sequence.length < 4) {
             //Escolhe um número aleatório e randomico de 1 a 4
             add = Math.floor((Math.random() * 4) + 1);
 
             //Valida se o número já foi utilizado
-            //Se for o resultado do indexOf vai ser a posição
+            //Se for o result do indexOf vai ser a posição
             //Se não, vai ser -1
-            if (sequencia.indexOf(add) == -1) {
-                sequencia.push(add);
+            if (sequence.indexOf(add) == -1) {
+                sequence.push(add);
             }
         }
         //retorna o array randomico
-        return sequencia;
+        return sequence;
     }
 
     //Escuta o evento click do botão calcula
-    $('#calcula').on('click', function() {
+    $('#calculate').on('click', function() {
         //Pega o array preenchido nos inputs
-        var array = preencheArray();
+        var array = fillArray();
         //manda o array para a função que calcula
-        var obj = calcula(array);
-        //preenche o h1 com o resultado retornado
-        $('ul').append("<li><strong>Array Utilizado:</strong> [" + obj.array + "]  " + "<strong>Valor:</strong> " + obj.resultado + "</li>");
+        var obj = calculate(array);
+        //preenche o h1 com o result retornado
+        $('ul').append("<li><strong>Used Array:</strong> [" + obj.array + "]  " + "<strong>Value:</strong> " + obj.result + "</li>");
     });
 
     //Escuta o evento de click do botão random
-    $('#calculaRandom').on('click', function() {
-        var array = preencheArrayRandom();
-        var obj = calcula(array);
-        $('ul').append("<li><strong>Array Utilizado:</strong> [" + obj.array + "]  " + "<strong>Valor:</strong> " + obj.resultado + "</li>");
+    $('#randomCal').on('click', function() {
+        var array = fillArrayRandom();
+        var obj = calculate(array);
+        $('ul').append("<li><strong>Used Array:</strong> [" + obj.array + "]  " + "<strong>Value:</strong> " + obj.result + "</li>");
     });
 
     //Escuta o evento do botão RODA 100
-    $('#calcula100').on('click', function() {
+    $('#hundredCal').on('click', function() {
         var total = [];
         //Roda a função 100 vezes
         for (var i = 0; i < 1000; i++) {
-            var array = preencheArrayRandom();
-            total.push(calcula(array));
-            //console.log("Resultado: " + total[i].resultado + " Array: " + total[i].array);
+            var array = fillArrayRandom();
+            total.push(calculate(array));
+            //console.log("result: " + total[i].result + " Array: " + total[i].array);
         }
 
-        //Ordena por ordem decrescente de resultado (maior => menor)
-        var hu3 = total.sort(function(o1, o2) {
-            return o1.resultado - o2.resultado;
+        //Ordena por ordem decrescente de result (maior => menor)
+        var objList = total.sort(function(o1, o2) {
+            return o1.result - o2.result;
         });
 
         //Imprime no console para cada interação
-        $.each(hu3, function(index, value) {
-            $('ul').append("<li><strong>Array Utilizado:</strong> [" + value.array + "]  " + "<strong>Valor:</strong> " + value.resultado + "</li>");
+        $.each(objList, function(index, value) {
+            $('ul').append("<li><strong>Used Array:</strong> [" + value.array + "]  " + "<strong>Value:</strong> " + value.result + "</li>");
         });
     });
 
@@ -134,7 +134,7 @@ $(document).ready(function() {
         }
     });
 
-    $('#removeElementos').on('click', function() {
-        $('ul li').remove()
+    $('#removeElem').on('click', function() {
+        $('ul li').remove();
     });
 });

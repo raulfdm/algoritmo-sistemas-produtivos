@@ -11,26 +11,19 @@ h1 {
 .gp-btn {
     clear: both;
 }
-.pnl-resultado {
+.result-pnl {
 margin-top: 50px;
 
 }
 .panel .panel-heading h2{
   text-align: center;
 }
-.pnl-resultado .panel-body{
+.result-pnl .panel-body{
 height: 200px;
   max-height: 200px;
   overflow: scroll;
 }
-.valores {
-    float: left;
-    width: 300px;
-}
-.p-resultado-array, .p-resultado-valor {
-    display: inline;
-}
 
-.lista-resultados{
+.result-list{
   list-style: none;
 }
