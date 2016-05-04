@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Algoritmo</title>
+    <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="js/mathlib/jsdk.js"></script>
+    <script type="text/javascript" src="js/mathlib/jsdk-rabeejs.js"></script>
+    <script type="text/javascript" src="js/mathlib/jsdk-masna3.js"></script>
+    <script type="text/javascript" src="js/mathlib/math.js"></script>
+    <script type="text/javascript" src="js/meu.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilo.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Testando algorítmo</h1></div>
+
+        <div class="form-inline">
+            <div class="form-group">
+                <label for="valor1">P1</label>
+                <input class="form-control" id="valor1" type="number" min="1" max="4">
+            </div>
+            <div class="form-group">
+                <label for="">P2</label>
+                <input class="form-control" id="valor2" type="number" min="1" max="4">
+            </div>
+            <div class="form-group">
+                <label for="">P3</label>
+                <input class="form-control" id="valor3" type="number" min="1" max="4">
+            </div>
+            <div class="form-group">
+                <label for="">P4</label>
+                <input class="form-control" id="valor4" type="number" min="1" max="4">
+            </div>
+            <button id="calcula" class="btn btn-primary">CALCULAR</button>
+            <button id="calculaRandom" class="btn btn-primary">RANDOM</button>
+            <button id="calcula100" class="btn btn-primary">RODA 100</button>
+            <button id="removeElementos" class="btn btn-danger">Limpa Resultados</button>
+        </div>
+
+
+        <div class="row pnl-resultado">
+            <div class="panel panel-default ">
+                <div class="panel-heading">
+                    <h2 class="panel-title">Resultado</h3>
+                </div>
+                <div class="panel-body">
+                  <ul class="lista-resultados"></ul>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+
+</html>
