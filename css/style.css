@@ -1,0 +1,54 @@
+body {
+    background-color: #ebebeb;
+}
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+}
+.jumbotron {
+    background-color: inherit;
+}
+.gp-btn {
+  margin-top: 19px;
+margin-bottom: -23px;
+}
+.gp-btn button{
+  margin: 5px;
+}
+.result-pnl {
+    margin-top: 50px;
+}
+.panel .panel-heading h2 {
+    text-align: center;
+}
+.result-pnl .panel-body {
+    height: 400px;
+    max-height: 400px;
+    overflow: scroll;
+}
+.result-list {
+    list-style: none;
+}
+.table-matrix {
+    text-align: center;
+}
+.dif-color-index {
+    background-color: #34495e;
+    color: #fff;
+}
+
+.center{
+  position: relative;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   width: 50%;
+   height: 30%;
+   margin: auto;
+}
+
+.rules{
+  margin-left: 20px;
+  list-style: decimal;
+}
