@@ -10,7 +10,6 @@ var A1 = mathsAPI.getInstance('masfufa', {
 
 //Função que faz o calculo
 var calculate = function(sequence) {
-
     //Um array espelho para retornar.
     var getArray = sequence.toString();
 
@@ -82,7 +81,7 @@ $(document).ready(function() {
         }
 
         if (ret === 0) {
-            cleanResults();
+            removeLi();
             if ($('.result-list').length === 1)
                 return sequence;
         }
@@ -127,35 +126,26 @@ $(document).ready(function() {
 
     //Escuta o evento click do botão calcula
     $('#calculate').on('click', function() {
-        var start = time();
-        cleanResults();
+        removeLi();
         //Pega o array preenchido nos inputs
         var array = fillArray();
         //manda o array para a função que calcula
         var obj = calculate(array);
         //preenche o h1 com o result retornado
         $('.result-list').append("<li><strong>Used Array:</strong> [" + obj.array + "]  " + "<strong>Value:</strong> " + obj.result + "</li>");
-        var end = time();
-
-        printTime(start, end);
     });
 
     //Escuta o evento de click do botão random
     $('#randomCal').on('click', function() {
-        var start = time();
-        cleanResults();
+        removeLi();
         var array = fillArrayRandom();
         var obj = calculate(array);
         $('.result-list').append("<li><strong>Used Array:</strong> [" + obj.array + "]  " + "<strong>Value:</strong> " + obj.result + "</li>");
-        var end = time();
-
-        printTime(start, end);
     });
 
     //Escuta o evento do botão RODA 100
     $('#hundredCal').on('click', function() {
-        var start = time();
-        cleanResults();
+        removeLi();
         var total = [];
         //Roda a função 100 vezes
         for (var i = 0; i < 100; i++) {
@@ -173,9 +163,6 @@ $(document).ready(function() {
         $.each(objList, function(index, value) {
             $('.result-list').append("<li><strong>Used Array:</strong> [" + value.array + "]  " + "<strong>Value:</strong> " + value.result + "</li>");
         });
-
-        var end = time();
-        printTime(start, end);
     });
 
     //Somente 1 número no input
@@ -186,20 +173,11 @@ $(document).ready(function() {
     });
 
     $('#removeElem').on('click', function() {
-        cleanResults();
+        removeLi();
     });
 
-    function cleanResults() {
+    function removeLi() {
         $('.result-list li').remove();
         $('.result-list').removeClass("alert alert-danger");
-        $('.result-time p').text("");
-    }
-
-    function time() {
-        return new Date().getTime();
-    }
-
-    function printTime(ini, end) {
-      $('.result-time p').text(end - ini + " millisecounds wasted")
     }
 });
