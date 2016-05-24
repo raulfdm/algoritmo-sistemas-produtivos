@@ -23,6 +23,8 @@
     {% endcase %}
     <link rel="stylesheet" href="{{" /css/reset.css " | prepend: site.baseurl}}">
     <link rel="stylesheet" href="{{" /css/bootstrap.min.css " | prepend: site.baseurl}}">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="{{" /css/style.css " | prepend: site.baseurl}}">
     <link rel="stylesheet" href="{{" /css/font-awesome.min.css "| prepend: site.baseurl}}">
 </head>
@@ -32,7 +34,7 @@
             <h1><a class="titulo" href="/">Algorithm</a><small> production system</small></h1>
             <h2 style="text-align: center">{{page.title}} {% if page.hard == true %} (Fábrica){%endif%}</h2>
         </div>
-        
+
     </ul>
     <nav class="nav">
         {% include menu.html %}
