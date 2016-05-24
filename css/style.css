@@ -9,11 +9,11 @@ h1 {
     background-color: inherit;
 }
 .gp-btn {
-  margin-top: 19px;
-margin-bottom: -23px;
+    margin-top: 19px;
+    margin-bottom: -23px;
 }
-.gp-btn button{
-  margin: 5px;
+.gp-btn button {
+    margin: 5px;
 }
 .result-pnl {
     margin-top: 50px;
@@ -22,7 +22,7 @@ margin-bottom: -23px;
     text-align: center;
 }
 .result-pnl .panel-body {
-    height: 400px;
+    height: 200px;
     max-height: 400px;
     overflow: scroll;
 }
@@ -36,19 +36,23 @@ margin-bottom: -23px;
     background-color: #34495e;
     color: #fff;
 }
-
-.center{
-  position: relative;
-   top: 0;
-   bottom: 0;
-   left: 0;
-   right: 0;
-   width: 50%;
-   height: 30%;
-   margin: auto;
+.center {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 50%;
+    height: 30%;
+    margin: auto;
 }
-
-.rules{
-  margin-left: 20px;
-  list-style: decimal;
+.rules {
+    margin-left: 20px;
+    list-style: decimal;
+}
+.div-btn {
+    display: inline-block;
+}
+.div-btn input[type="number"] {
+    width: 20px;
 }

@@ -9,7 +9,8 @@
     <script type="text/javascript" src="js/mathlib/jsdk-rabeejs.js"></script>
     <script type="text/javascript" src="js/mathlib/jsdk-masna3.js"></script>
     <script type="text/javascript" src="js/mathlib/math.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+    <script type="text/javascript" src="js/matriz3.js"></script>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -22,37 +23,20 @@
         <div class="jumbotron">
             <h1>Algorithm <small>production system</small></h1></div>
         <div class="row center">
-            <div class="form-inline col-md-12">
-                <div class="form-group">
-                    <label for="value1">P1</label>
-                    <input class="form-control" id="value1" type="number" min="1" max="4">
-                </div>
-                <div class="form-group">
-                    <label for="value2">P2</label>
-                    <input class="form-control" id="value2" type="number" min="1" max="4">
-                </div>
-                <div class="form-group">
-                    <label for="value3">P3</label>
-                    <input class="form-control" id="value3" type="number" min="1" max="4">
-                </div>
-                <div class="form-group">
-                    <label for="value4">P4</label>
-                    <input class="form-control" id="value4" type="number" min="1" max="4">
-                </div>
-            </div>
-        </div>
-        <div class="row center">
-            <div class="gp-btn col-md-12">
-                <button id="calculate" class="btn btn-primary">Calculate</button>
+            <div class="form-inline">
                 <button id="randomCal" class="btn btn-primary">Random</button>
-                <button id="hundredCal" class="btn btn-primary">Random 100x</button>
+                <div class="from-group input-group text-left col-md-5">
+                    <input class="form-control" id="randomTimes" type="number" min="1">
+                    <span class="input-group-btn">
+                        <button id="randomTimesFunc" class="btn btn-primary">Random Times</button>
+                      </span>
+                </div>
                 <button id="removeElem" class="btn btn-danger">Clean Results</button>
                 <button class="btn btn-default btn-faq" name="button" data-toggle="modal" data-target="#modal-faq">
                     <i class="fa fa-question-circle-o fa-lg" aria-hidden="true"></i>
                 </button>
             </div>
         </div>
-
         <div class="row result-pnl">
             <div class="panel panel-default ">
                 <div class="panel-heading">
