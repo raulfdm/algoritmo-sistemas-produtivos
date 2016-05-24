@@ -10,7 +10,7 @@ title: Algorithm Test
 email: site@macuco.com.br
 description: "Loucuras com o Jekyll. É hora do show, porra"
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://yourdomain.com" # the base hostname & protocol for your site
+url: "http://raulfdm.github.io/algoritmo-sistemas-produtivos" # the base hostname & protocol for your site
 twitter_username: raulfdm
 github_username:  raulfdm
 
