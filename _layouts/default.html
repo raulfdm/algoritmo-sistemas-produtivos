@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
+
+<head>
+    <meta charset="utf-8">
     <title>{% if page.title %} {{page.title}} {% else %}{{site.title}}{%endif%}</title>
-        <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/mathlib/jsdk-rabeejs.js"></script>
-        <script type="text/javascript" src="js/mathlib/jsdk-masna3.js"></script>
-        <script type="text/javascript" src="js/mathlib/math.js"></script>
-        {% if page.hard == true %}
-            <script type="text/javascript" src="js/functionsHard.js"></script>
-        {% else %}
-            <script type="text/javascript" src="js/functions.js"></script>
-        {% endif %}
-        {% case page.matriz %}
-        {% when 1 %}
-        <script type="text/javascript" src="js/matriz1.js"></script>
-        {% when 2 %}
-        <script type="text/javascript" src="js/matriz2.js"></script>
-        {% when 3 %}
-        <script type="text/javascript" src="js/matriz3.js"></script>
+    <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/mathlib/jsdk-rabeejs.js"></script>
+    <script type="text/javascript" src="js/mathlib/jsdk-masna3.js"></script>
+    <script type="text/javascript" src="js/mathlib/math.js"></script>
+    {% if page.hard == true %}
+    <script type="text/javascript" src="js/functionsHard.js"></script>
+    {% else %}
+    <script type="text/javascript" src="js/functions.js"></script>
+    {% endif %} {% case page.matriz %} {% when 1 %}
+    <script type="text/javascript" src="js/matriz1.js"></script>
+    {% when 2 %}
+    <script type="text/javascript" src="js/matriz2.js"></script>
+    {% when 3 %}
+    <script type="text/javascript" src="js/matriz3.js"></script>
     {% endcase %}
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
 </head>
+
 <body>
     <div class="container">
         <div class="jumbotron">
@@ -33,14 +33,14 @@
             <h2 style="text-align: center">{{page.title}} {% if page.hard == true %} (Fábrica){%endif%}</h2>
         </div>
 
-    </ul>
-    <nav class="nav">
-        {% include menu.html %}
-    </nav>
+        </ul>
+        <nav class="nav">
+            {% include menu.html %}
+        </nav>
 
-    <!-- CONTEUDO -->
-    <h1>{{page.id}}</h1>
-    {{ content }}
-</div>
+        <!-- CONTEUDO -->
+        <h1>{{page.id}}</h1> {{ content }}
+    </div>
 </body>
+
 </html>
