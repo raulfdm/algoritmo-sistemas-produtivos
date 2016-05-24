@@ -60,3 +60,6 @@ h1 {
 .div-btn input[type="number"] {
     width: 20px;
 }
+.panel-title{
+    text-align: center;
+}
