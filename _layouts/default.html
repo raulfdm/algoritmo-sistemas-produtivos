@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    <title>{% if page.title %} {{page.title}} {% else %}{{site.title}}{%endif%}</title>
+        <script type="text/javascript" src="{{"/js/jquery-2.2.3.min.js" | prepend: site.baseurl}}"></script>
+        <script type="text/javascript" src="{{"/js/bootstrap.min.js" | prepend: site.baseurl}}"></script>
+        <script type="text/javascript" src="{{"/js/mathlib/jsdk-rabeejs.js" | prepend: site.baseurl}}"></script>
+        <script type="text/javascript" src="{{"/js/mathlib/jsdk-masna3.js" | prepend: site.baseurl}}"></script>
+        <script type="text/javascript" src="{{"/js/mathlib/math.js" | prepend: site.baseurl}}"></script>
+        {% if page.hard == true %}
+            <script type="text/javascript" src="{{"/js/functionsHard.js" | prepend: site.baseurl}}"></script>
+        {% else %}
+            <script type="text/javascript" src="{{"/js/functions.js" | prepend: site.baseurl}}"></script>
+        {% endif %}
+        {% case page.matriz %}
+        {% when 1 %}
+        <script type="text/javascript" src="{{"/js/matriz1.js" | prepend: site.baseurl}}"></script>
+        {% when 2 %}
+        <script type="text/javascript" src="{{"/js/matriz2.js" | prepend: site.baseurl}}"></script>
+        {% when 3 %}
+        <script type="text/javascript" src="{{"/js/matriz3.js" | prepend: site.baseurl}}"></script>
+    {% endcase %}
+    <link rel="stylesheet" href="{{" /css/reset.css " | prepend: site.baseurl}}">
+    <link rel="stylesheet" href="{{" /css/bootstrap.min.css " | prepend: site.baseurl}}">
+    <link rel="stylesheet" href="{{" /css/style.css " | prepend: site.baseurl}}">
+    <link rel="stylesheet" href="{{" /css/font-awesome.min.css "| prepend: site.baseurl}}">
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1><a class="titulo" href="/">Algorithm</a><small> production system</small></h1>
+            <h2 style="text-align: center">{{page.title}} {% if page.hard == true %} (Fábrica){%endif%}</h2>
+        </div>
+        
+    </ul>
+    <nav class="nav">
+        {% include menu.html %}
+    </nav>
+
+    <!-- CONTEUDO -->
+    <h1>{{page.id}}</h1>
+    {{ content }}
+</div>
+</body>
+</html>

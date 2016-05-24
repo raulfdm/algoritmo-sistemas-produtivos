@@ -150,7 +150,7 @@
         function cleanResults() {
             $('.result-list li').remove();
             $('.result-list').removeClass("alert alert-danger");
-            $('.result-time p').text("");
+            $('.result-time p').text("0.00 seconds | 0 milliseconds wasted");
 
         }
 
@@ -159,7 +159,8 @@
         }
 
         function printTime(ini, end) {
-            $('.result-time p').text(((end - ini) / 1000).toFixed(2) + " seconds wasted");
+            var total = end-ini;
+            $('.result-time p').text(((total / 1000).toFixed(2) + " seconds | "+total+" milliseconds wasted"));
         }
 
         function fillResult(obj) {

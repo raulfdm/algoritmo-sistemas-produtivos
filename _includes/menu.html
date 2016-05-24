@@ -1,0 +1,29 @@
+{% assign pages = site.html_pages | sort: 'title' %}
+<div class="btn-group" role="group" aria-label="...">
+    <div class="btn-group" role="group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Sem Fábrica
+        <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            {% for page in pages %}
+                {% if page.url != "/" and page.hard != true %}
+                    <li><a href="{{page.url}}">{{page.title}}</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="btn-group" role="group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Com Fábrica
+        <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            {% for page in pages %}
+                {% if page.url != "/" and page.hard == true %}
+                    <li><a href="{{page.url}}">{{page.title}}</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+</div>
