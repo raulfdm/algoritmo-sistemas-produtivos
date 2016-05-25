@@ -6,12 +6,4 @@ layout: default
 
 {% include quadro-resultado.html %}
 
-{% if page.matriz == 1 %}
-{% include modal-matriz-um.html %}
-{% elsif  page.matriz == 2%}
-{% include modal-matriz-dois.html %}
-{% else %}
-{% include modal-matriz-tres.html %}
-{% endif %}
-
-
+{% include modal.html %}

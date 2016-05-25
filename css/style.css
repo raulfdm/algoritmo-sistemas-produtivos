@@ -63,3 +63,28 @@ h1 {
 .panel-title{
     text-align: center;
 }
+.modal-3{
+  min-width: 704px;
+}
+
+footer{
+  position: absolute;
+  width: 100%;
+  background-color: #444;
+  margin: 0;
+  text-align: center;
+  height: 60px;
+  padding-top: 14px;
+}
+footer p {
+  color: white;
+  margin: 0 auto;
+  display: inline;
+}
+footer i{
+  margin-left: 5px;
+  color: white;
+}
+footer i:hover{
+  color:#4078c0;
+}

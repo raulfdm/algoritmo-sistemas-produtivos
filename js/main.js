@@ -43,7 +43,7 @@ $(document).ready(function() {
         //manda o array para a função que calcula
         var obj = calculate(array);
         //preenche o h1 com o result retornado
-        $('.result-list').append("<li><strong>Used Array:</strong> [" + obj.array + "]  " + "<strong>Value:</strong> " + obj.result + "</li>");
+        fillResult(obj);
         var end = time();
 
         printTime(start, end);
@@ -54,9 +54,8 @@ $(document).ready(function() {
         var start = time();
         cleanResults();
         var array = fillArrayRandom();
-        console.log(array);
         var obj = calculate(array);
-        $('.result-list').append("<li><strong>Used Array:</strong> [" + obj.array + "]  " + "<strong>Value:</strong> " + obj.result + "</li>");
+        fillResult(obj);
         var end = time();
 
         printTime(start, end);
@@ -83,7 +82,7 @@ $(document).ready(function() {
 
         //Imprime no console para cada interação
         $.each(objList, function(index, value) {
-            $('.result-list').append("<li><strong>Used Array:</strong> [" + value.array + "]  " + "<strong>Value:</strong> " + value.result + "</li>");
+            fillResult(value);
         });
 
         var end = time();
@@ -102,9 +101,10 @@ $(document).ready(function() {
     });
 
     function cleanResults() {
+        removeErroField();
         $('.result-list li').remove();
         $('.result-list').removeClass("alert alert-danger");
-        $('.result-time p').text("0.00 seconds | 0 milliseconds wasted");
+        $('.result-time p').text("Tempo de Execução: 0.00 segundos(ms) | 0 milisegundos (ms)");
     }
 
     function time() {
@@ -112,16 +112,42 @@ $(document).ready(function() {
     }
 
     function printTime(ini, end) {
-        $('.result-time p').text(((end - ini) / 1000).toFixed(2) + " seconds wasted");
+        var total = end - ini;
+        $('.result-time p').text("Tempo de Execução: " + ((total) / 1000).toFixed(2) + " segundos(ms) | " + total + " milisegundos (ms)");
     }
 
     function validaNumero(numberTimes) {
-        if (numberTimes == undefined || numberTimes == "" || numberTimes == 0 || numberTimes.length == 0 || numberTimes < 0) {
+        console.log(numberTimes);
+        if (numberTimes === undefined || numberTimes === "" || numberTimes === 0 || numberTimes.length === 0 || numberTimes <= 0) {
             cleanResults();
             $('.result-list').append("<li>Digite um valor válido</li>").addClass("alert alert-danger");
+            addErroField();
             return false;
         } else {
             return true;
         }
     }
+
+    function addErroField() {
+        $('.from-group.input-group').addClass('has-error');
+        var a = $('.from-group.input-group input');
+        a.val("");
+        a.focus();
+    }
+
+    function removeErroField() {
+        $('.from-group.input-group').removeClass('has-error');
+    }
+
+    function fillResult(obj) {
+        var resultado = $('.result-list');
+        if (obj.fabrica1 !== undefined) {
+            /*resultado.append("<li><strong>Used Array:</strong> [" + obj.array + "] </li><li><strong>Custo:</strong> "+ obj.result+"<li> <strong>Fábrica 1: </strong>" + obj.fabrica1 + " unidades restantes <strong>Fábrica 2: </strong>" + obj.fabrica2 + " unidades restantes" + "</li><li><br></li>");*/
+
+            resultado.append("<li><strong>Used Array:</strong> [" + obj.array + "] " + " | <strong>Custo: </strong>" + obj.result + " | <strong>Fábrica 1: </strong>" + obj.fabrica1 + " unidades restantes e <strong>Fábrica 2: </strong>" + obj.fabrica2 + " unidades restantes");
+        } else {
+            resultado.append("<li><strong>Used Array:</strong> [" + obj.array + "] " + " | <strong>Custo: </strong>" + obj.result);
+        }
+
+    }    
 });
