@@ -1,3 +1,49 @@
 ---
 layout: default
 ---
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Informativo</h3>
+    </div>
+    <div class="panel-body">
+        <div class="">
+            <h2>Objetivo</h2>
+            <p>
+                Esse algoritmo tem como objetivo encontrar a solução com o menor custo para as matrizes em questão:
+            </p>
+        </div>
+        <div class="">
+            <h2>Matrizes</h2>
+            {% include collapse-matrizes.html%}
+        </div>
+        <div class="">
+            <h2>Regras</h2>
+            <p>
+                Para resolver a matriz, algumas regras devem ser obedecidas:
+            </p>
+            <ul class="rules">
+                <li>Escolha uma sequência, tendo a fábrica como ponto de partida e chegada, exemplo: Fábrica>P1>P2>P3>..PN..>Fábrica</li>
+                <li>Não Repita Números</li>
+            </ul>
+        </div>
+
+        <div class="">
+            <h2>Solução</h2>
+            <p>
+                Após selecinada a sequência, deve-se calcular o custo do ponto atual para o próximo, por exemplo:
+                <ul>
+                    <p>
+                        Sequência [Fábrica(F),P3,P2,P1,P4,Fábrica(F)] na primeira matriz:
+                    </p>
+                    <li>De: F Para: P3 = 13;</li>
+                    <li>De: P3 Para: P2 = 9;</li>
+                    <li>De: P2 Para: P1 = 9;</li>
+                    <li>De: P1 Para: P4 = 18;</li>
+                    <li>De: P4 Para: F = 6;</li>
+                </ul>
+                No fim, soma-se o custo de cada operação e verifica-se qual o custo total produtivo (55).
+            </p>
+        </div>
+    </div>
+</div>
