@@ -29,11 +29,8 @@ function calculate(sequence) {
             f1 -= condicoesMirror.valores[currentPos];
         } else if (f2 - condicoesMirror.valores[currentPos] > 0) {
             f2 -= condicoesMirror.valores[currentPos];
-        } else if (condicoesMirror.valores[currentPos] === undefined) {
-            console.log("fim");
-        } else {
-            console.log("Sem capacidade");
-        }
+        } else if (condicoesMirror.valores[currentPos] === undefined) {            
+        } 
         if (currentPos === undefined) {
             currentPos = 0;
         }

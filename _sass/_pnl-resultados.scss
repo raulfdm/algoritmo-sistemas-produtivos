@@ -1,0 +1,17 @@
+.result-pnl {
+    margin-top: 50px;
+}
+
+.panel .panel-heading h2 {
+    @extend %texto-centralizado;
+}
+
+.result-pnl .panel-body {
+    height: 200px;
+    max-height: 400px;
+    overflow: scroll;
+}
+
+.result-list {
+    list-style: none;
+}

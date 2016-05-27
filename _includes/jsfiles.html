@@ -1,0 +1,20 @@
+<script type="text/javascript" src="{{"/js/frameworks/jquery-2.2.3.min.js" | prepend:site.baseurl}}"></script>
+<script type="text/javascript" src="{{"/js/frameworks/bootstrap.min.js" | prepend:site.baseurl}}"></script>
+<script type="text/javascript" src="{{"/js/mathlib/jsdk.js" | prepend:site.baseurl}}"></script>
+<script type="text/javascript" src="{{"/js/mathlib/jsdk-rabeejs.js" | prepend:site.baseurl}}"></script>
+<script type="text/javascript" src="{{"/js/mathlib/jsdk-masna3.js" | prepend:site.baseurl}}"></script>
+<script type="text/javascript" src="{{"/js/mathlib/math.js" | prepend:site.baseurl}}"></script>
+<script type="text/javascript" src="{{"/js/main.js" | prepend:site.baseurl}}"></script>
+{% if page.hard == true %}
+    <script type="text/javascript" src="{{"/js/function-cap.js" | prepend:site.baseurl}}"></script>
+{% else %}
+    <script type="text/javascript" src="{{"/js/function.js" | prepend:site.baseurl}}"></script>
+{% endif %}
+{% case page.matriz %}
+{% when 1 %}
+<script type="text/javascript" src="{{"/js/matrizes/matriz1.js" | prepend:site.baseurl}}"></script>
+{% when 2 %}
+<script type="text/javascript" src="{{"/js/matrizes/matriz2.js" | prepend:site.baseurl}}"></script>
+{% when 3 %}
+<script type="text/javascript" src="{{"/js/matrizes/matriz3.js" | prepend:site.baseurl}}"></script>
+{% endcase %}

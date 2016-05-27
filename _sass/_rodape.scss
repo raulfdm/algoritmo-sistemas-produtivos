@@ -1,0 +1,19 @@
+footer {
+    position: absolute;
+    width: 100%;
+    background-color: $cor-fundo-rodape;
+    margin: 0;
+    @extend %texto-centralizado;
+    height: 3em;
+
+    p {
+        color: $cor-branca;
+        margin: 0 auto;
+        display: inline;
+    }
+}
+
+.dev-name {
+    font-family: $font-dev-rodape;
+    font-size: 1.5em;
+}
