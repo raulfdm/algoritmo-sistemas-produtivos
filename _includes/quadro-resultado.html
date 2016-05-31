@@ -2,15 +2,18 @@
     <div class="panel panel-default ">
         <div class="panel-heading">
             <h2 class="panel-title">{{page.title}} {% if page.hard == true %} (Capacidade){%endif%}</h2>
-        </div>
-        <div class="panel-body">
-            <ul class="result-list">
-            </ul>
+            </div>
+            <div class="panel-body">
+                <ul class="result-list">
+                    <li class="alert alert-danger hide result-erro">Digite um valor válido</li>
+                    <li class="resultado"><strong>Array Utilizado:</strong></li>
+                </ul>
+            </div>
         </div>
     </div>
-</div>
-<div class="result-time">
-    <p>
-    Tempo de Execução: 0.00 segundos(ms) | 0 milisegundos (ms)
-    </p>
-</div>
+    <div class="result-time">
+        <p>
+            Tempo de Execução: <span class="result-sec">0.00</span> segundos(ms) | <span class="result-milli">0</span> milisegundos (ms)
+        </p>
+    </div>
+    <button class="teste">TESTA</button>

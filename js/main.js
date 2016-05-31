@@ -11,7 +11,7 @@ function mountArray(array, dim) {
     return arrayDone;
 }
 $(document).ready(function() {
-    //Preenchimento Randomico
+    //Função de Preenchimento Randomico
     function fillArrayRandom(qtdElem) {
         var add; //variável para guardar o valor        
         var sequence = []; //Array que será enviado        
@@ -34,8 +34,10 @@ $(document).ready(function() {
         var start = time();
         var array = fillArrayRandom(elemArray);
         var obj = calculate(array);
+        var end;
+
         fillResult(obj);
-        var end = time();
+        end = time();
 
         printTime(start, end);
     });
@@ -51,7 +53,9 @@ $(document).ready(function() {
         var total = [];
         var arraysUsados = [];
         var array;
-        var qtdElem = elemArray;                
+        var qtdElem = elemArray;
+        var objList;
+        var end;
         //Roda a função x vezes
         for (var i = 0; i < numberTimes; i++) {
             var array = fillArrayRandom(qtdElem);
@@ -59,7 +63,7 @@ $(document).ready(function() {
         }
 
         //Ordena por ordem decrescente de result (maior => menor)
-        var objList = total.sort(function(o1, o2) {
+        objList = total.sort(function(o1, o2) {
             return o1.result - o2.result;
         });
 
@@ -68,11 +72,11 @@ $(document).ready(function() {
             fillResult(value);
         });
 
-        var end = time();
+        end = time();
         printTime(start, end);
     });
 
-    //Somente 1 número no input
+    //Somente 4 digitos no input
     $('input').on('input', function() {
         if (this.value.length > 4) {
             this.value = this.value.slice(0, 4);
@@ -85,9 +89,10 @@ $(document).ready(function() {
 
     function cleanResults() {
         removeErroField();
-        $('.result-list li').remove();
-        $('.result-list').removeClass("alert alert-danger");
-        $('.result-time p').text("Tempo de Execução: 0.00 segundos(ms) | 0 milisegundos (ms)");
+        $('.result-erro').addClass('hide');
+        $('.resultado').remove();        
+        $('.result-sec').text("0.00");
+        $('.result-milli').text(0);
     }
 
     function time() {
@@ -96,13 +101,14 @@ $(document).ready(function() {
 
     function printTime(ini, end) {
         var total = end - ini;
-        $('.result-time p').text("Tempo de Execução: " + ((total) / 1000).toFixed(2) + " segundos(ms) | " + total + " milisegundos (ms)");
+        $('.result-sec').text(((total) / 1000).toFixed(2));
+        $('.result-milli').text(total);
     }
 
     function validaNumero(numberTimes) {
-        if (numberTimes === undefined || numberTimes === "" || numberTimes === 0 || numberTimes.length === 0 || numberTimes <= 0) {
+        if (!numberTimes) {
             cleanResults();
-            $('.result-list').append("<li>Digite um valor válido</li>").addClass("alert alert-danger");
+            $('.result-erro').removeClass('hide');
             addErroField();
             return false;
         } else {
@@ -123,11 +129,17 @@ $(document).ready(function() {
 
     function fillResult(obj) {
         var resultado = $('.result-list');
-        if (obj.fabrica1 !== undefined) {
-            resultado.append("<li><strong>Array Utilizado:</strong> [" + obj.array + "] " + " | <strong>Custo: </strong>" + obj.result + " | <strong>Fábrica 1: </strong>" + obj.fabrica1 + " unidades restantes e <strong>Fábrica 2: </strong>" + obj.fabrica2 + " unidades restantes");
+        if (obj.fabrica1) {
+            resultado.append('<li class="resultado"><strong>Array Utilizado:</strong> [' + obj.array + '] ' + ' | <strong>Custo: </strong>' + obj.result + ' | <strong>Fábrica 1: </strong>' + obj.fabrica1 + ' unidades restantes e <strong>Fábrica 2: </strong>' + obj.fabrica2 + ' unidades restantes');
         } else {
-            resultado.append("<li><strong>Array Utilizado:</strong> [" + obj.array + "] " + " | <strong>Custo: </strong>" + obj.result);
+            resultado.append('<li class="resultado"><strong>Array Utilizado:</strong> [' + obj.array + '] ' + ' | <strong>Custo: </strong>' + obj.result);
         }
 
     }
+
+    $('.teste').on('click',function(){
+        var raul = $('.resultado').html();
+        $('.result-list li:last').append(raul);
+    });
+
 });
